@@ -1,0 +1,22 @@
+dist: xenial
+language: python
+python:
+  - "3.6" 
+# command to install dependencies
+
+addons:
+  sonarcloud:
+    organization: "jacques15" # the key of the org you chose at step #3
+    #token:
+      #secure: "**************************"
+    #project: "Jacques15_Test123"
+    
+install:
+  - pip install -U pytest
+  - pip install -U flask
+  - nvm install 10
+  - rvm install ruby-3.0.2
+# command to run tests
+script:
+  - sonar-scanner
+  - pytest
